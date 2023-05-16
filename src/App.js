@@ -31,13 +31,16 @@ function App() {
       LocationOfExpenditure : 'delhi',
     },
   ];
-
-
+ 
+const addExpenseHandler = expense =>{
+  console.log("In app.js");
+  console.log(expense);
+}
 
   return (
     <div>
       <h2>Let's get started!</h2>
-      <NewExpense/>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       {expenses.map((item) => (
         <ExpenseItem 
         key={item.id}
