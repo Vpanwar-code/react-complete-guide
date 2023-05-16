@@ -1,4 +1,5 @@
 import ExpenseItem from './components/ExpenseItem';
+import Expenses from './components/Expenses';
 import NewExpense from './components/NewExpense';
 
 function App() {
@@ -41,15 +42,7 @@ const addExpenseHandler = expense =>{
     <div>
       <h2>Let's get started!</h2>
       <NewExpense onAddExpense={addExpenseHandler}/>
-      {expenses.map((item) => (
-        <ExpenseItem 
-        key={item.id}
-        title={item.title}
-        amount={item.amount}
-        date={item.date}
-        LocationOfExpenditure={item.LocationOfExpenditure}
-        ></ExpenseItem>
-      ))}
+      <Expenses data={expenses}/>
      
       
       {/* <ExpenseItem
