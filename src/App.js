@@ -1,10 +1,11 @@
 import ExpenseItem from './components/ExpenseItem';
+import React ,{useState} from 'react';
 import Expenses from './components/Expenses';
 import NewExpense from './components/NewExpense';
 
-function App() {
 
-  const expenses = [
+
+  const dummyData = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -32,17 +33,24 @@ function App() {
       LocationOfExpenditure : 'delhi',
     },
   ];
- 
-const addExpenseHandler = expense =>{
-  console.log("In app.js");
-  console.log(expense);
-}
 
-  return (
-    <div>
-      <h2>Let's get started!</h2>
-      <NewExpense onAddExpense={addExpenseHandler}/>
-      <Expenses data={expenses}/>
+  const App = () =>{
+    const[expenses,setExpenses]=useState(dummyData);
+
+    const addExpenseHandler = expense =>{
+     setExpenses([expense,...expenses]);
+    }
+    
+      return (
+        <div>
+          <h2>Let's get started!</h2>
+          <NewExpense onAddExpense={addExpenseHandler}/>
+          <Expenses data={expenses}/>
+          </div>
+      );
+  }
+ 
+  export default App;
      
       
       {/* <ExpenseItem
@@ -69,8 +77,7 @@ const addExpenseHandler = expense =>{
       date={expenses[3].date}
       LocationOfExpenditure={expenses[3].LocationOfExpenditure}
       ></ExpenseItem> */}
-    </div>
-  );
-}
+  
 
-export default App;
+
+
