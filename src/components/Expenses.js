@@ -23,7 +23,7 @@ return (
     <div>
         <Card className="expenses">
         <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
-        {filteredExpenses.length === 0 && <p>No Expenses Found.</p>}
+         
         <ExpensesList items={filteredExpenses}/>
         
         </Card>
